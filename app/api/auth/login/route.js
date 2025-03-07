@@ -15,7 +15,7 @@ export async function POST(req) {
     }
 
     return NextResponse.json({ message: "Login successful", data }, { status: 200 });
-  } catch (err) {
+  } catch  {
     return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
   }
 }

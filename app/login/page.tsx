@@ -29,12 +29,17 @@ export default function LoginPage() {
       if (!res.ok) throw new Error(data.error);
 
       alert("Login successful!");
-      router.push("/dashboard"); // Redirect to dashboard after login
-    } catch (err: any) {
-      setError(err.message);
+      router.push("/dashboard"); 
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message); 
+      } else {
+        setError("An unknown error occurred"); 
+      }
     } finally {
       setLoading(false);
     }
+    
   };
 
   return (
